@@ -12,14 +12,16 @@ public class Movement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D rb;
     Animator animator;
-    BoxCollider2D boxcollider;
+    CapsuleCollider2D bodyCollider;
+    BoxCollider2D shoeCollider;
     
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        boxcollider = GetComponent<BoxCollider2D>();
+        bodyCollider = GetComponent<CapsuleCollider2D>();
+        shoeCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -36,7 +38,7 @@ public class Movement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (value.isPressed && boxcollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             rb.velocity += new Vector2(0f, jumpspeed);
         }
