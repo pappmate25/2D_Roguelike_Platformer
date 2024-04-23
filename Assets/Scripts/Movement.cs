@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float movementspeed = 8f;
-    [SerializeField] float jumpspeed = 10f;
+    [SerializeField] float movementspeed = 6f;
+    [SerializeField] float jumpspeed = 13f;
 
     Vector2 moveInput;
     Rigidbody2D rb;
