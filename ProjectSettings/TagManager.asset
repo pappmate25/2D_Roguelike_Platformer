@@ -16,8 +16,8 @@ TagManager:
   - Player
   - Background
   - Bouncing
-  - 
-  - 
+  - Climbing
+  - HIdden Platform
   - 
   - 
   - 
@@ -50,6 +50,9 @@ TagManager:
     locked: 0
   - name: Level
     uniqueID: 2674593289
+    locked: 0
+  - name: Climbing
+    uniqueID: 1230390069
     locked: 0
   - name: Player
     uniqueID: 1631128323

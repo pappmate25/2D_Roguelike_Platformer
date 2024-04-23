@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,17 +9,20 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float movementspeed = 6f;
     [SerializeField] float jumpspeed = 13f;
+    [SerializeField] float climbspeed = 6f;
 
     Vector2 moveInput;
     Rigidbody2D rb;
     Animator animator;
     CapsuleCollider2D bodyCollider;
     BoxCollider2D shoeCollider;
+    float gravityScaleAtStart;
     
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gravityScaleAtStart = rb.gravityScale;
         animator = GetComponent<Animator>();
         bodyCollider = GetComponent<CapsuleCollider2D>();
         shoeCollider = GetComponent<BoxCollider2D>();
@@ -28,9 +32,10 @@ public class Movement : MonoBehaviour
     {
         Run();
         FlipSprite();
+        ClimbLadder();
     }
+    
 
-   
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
@@ -38,7 +43,7 @@ public class Movement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) || value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             rb.velocity += new Vector2(0f, jumpspeed);
         }
@@ -65,8 +70,26 @@ public class Movement : MonoBehaviour
         }
     }
 
-    
+    void ClimbLadder()
+    {
+        if (shoeCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            Vector2 climbVelocity = new Vector2(rb.velocity.x, moveInput.y * climbspeed);
+            rb.velocity = climbVelocity;
+            rb.gravityScale = 0f;
+            animator.SetBool("isClimbing", true);
+        }
+        else
+        {
+            rb.gravityScale = gravityScaleAtStart;
+            animator.SetBool("isClimbing", false);
+        }
 
-    
+
+    }
+
+
+
+
 
 }
