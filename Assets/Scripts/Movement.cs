@@ -17,7 +17,8 @@ public class Movement : MonoBehaviour
     CapsuleCollider2D bodyCollider;
     BoxCollider2D shoeCollider;
     float gravityScaleAtStart;
-    
+
+    int valami;
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class Movement : MonoBehaviour
         {
             rb.velocity += new Vector2(0f, jumpspeed);
         }
+        
     }
 
     void Run()
