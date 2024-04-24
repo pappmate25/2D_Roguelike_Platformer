@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     float movementspeed = 6f;
     float jumpspeed = 13f;
     float climbspeed = 6f;
-    [SerializeField] Vector2 deathKick = new Vector2(15f, 15f);
+    [SerializeField] Vector2 deathKick = new Vector2(1f, 15f);
 
     Vector2 moveInput;
     Rigidbody2D rb;
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) || value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Hidden Platform")))
+        if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground","Hidden Platform")))
         {
             rb.velocity += new Vector2(0f, jumpspeed);
         }
@@ -105,7 +105,7 @@ public class Movement : MonoBehaviour
 
     void Die()
     {
-        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
         {
             isAlive = false;
             animator.SetTrigger("Dying");

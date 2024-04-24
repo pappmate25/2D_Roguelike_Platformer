@@ -19,7 +19,7 @@ TagManager:
   - Climbing
   - Hidden Platform
   - Enemy
-  - 
+  - Hazards
   - 
   - 
   - 
@@ -45,12 +45,6 @@ TagManager:
   - name: Background
     uniqueID: 133510611
     locked: 0
-  - name: Water
-    uniqueID: 2177832115
-    locked: 0
-  - name: Level
-    uniqueID: 2674593289
-    locked: 0
   - name: Climbing
     uniqueID: 1230390069
     locked: 0
@@ -59,4 +53,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1631128323
+    locked: 0
+  - name: Hazard
+    uniqueID: 2177832115
+    locked: 0
+  - name: Level
+    uniqueID: 2674593289
     locked: 0
