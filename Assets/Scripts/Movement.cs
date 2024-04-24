@@ -18,7 +18,6 @@ public class Movement : MonoBehaviour
     BoxCollider2D shoeCollider;
     float gravityScaleAtStart;
 
-    int valami;
 
     private void Start()
     {
