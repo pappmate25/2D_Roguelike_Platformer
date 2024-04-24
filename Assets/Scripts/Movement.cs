@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float movementspeed = 6f;
-    [SerializeField] float jumpspeed = 13f;
-    [SerializeField] float climbspeed = 6f;
+    float movementspeed = 6f;
+    float jumpspeed = 13f;
+    float climbspeed = 6f;
 
     Vector2 moveInput;
     Rigidbody2D rb;
@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) || value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) || value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Hidden Platform")))
         {
             rb.velocity += new Vector2(0f, jumpspeed);
         }
