@@ -21,6 +21,10 @@ public class Movement : MonoBehaviour
 
     bool isAlive = true;
 
+    [SerializeField] GameObject arrow;
+    [SerializeField] Transform bow;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,6 +44,9 @@ public class Movement : MonoBehaviour
         FlipSprite();
         ClimbLadder();
         Die();
+        Shoot();
+        
+        
     }
 
 
@@ -66,6 +73,17 @@ public class Movement : MonoBehaviour
 
     }
 
+    void OnFire(InputValue value)
+    {
+        if (!isAlive)
+        {
+            return;
+        }
+
+        Instantiate(arrow, bow.position, transform.rotation);
+    }
+
+
     void Run()
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * movementspeed, rb.velocity.y);
@@ -73,8 +91,6 @@ public class Movement : MonoBehaviour
 
         bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
         animator.SetBool("isRunning", playerHasHorizontalSpeed);
-
-
     }
 
     void FlipSprite()
@@ -111,6 +127,14 @@ public class Movement : MonoBehaviour
             animator.SetTrigger("Dying");
             rb.velocity = deathKick;
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
+        }
+    }
+
+    void Shoot()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            animator.SetTrigger("Shooting");
         }
     }
 }
