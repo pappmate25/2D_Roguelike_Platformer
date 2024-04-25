@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesText: {fileID: 9216066203288950625}
-  goldText: {fileID: 0}
+  goldText: {fileID: 3866203480762313506}
 --- !u!1 &5644480889491887234
 GameObject:
   m_ObjectHideFlags: 0
