@@ -20,7 +20,7 @@ TagManager:
   - Hidden Platform
   - Enemy
   - Hazards
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 133510611
+    locked: 0
+  - name: Interactable
+    uniqueID: 1512738477
     locked: 0
   - name: Climbing
     uniqueID: 1230390069

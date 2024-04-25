@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlimeMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 1f;
+    float moveSpeed = 1f;
     Rigidbody2D rb;
     void Start()
     {
