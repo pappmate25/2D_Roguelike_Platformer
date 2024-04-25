@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -12,8 +11,7 @@ public class Movement : MonoBehaviour
     float jumpspeed = 13f;
     float climbspeed = 6f;
     Vector2 deathKick = new Vector2(1f, 15f);
-    float levelLoadDelay = 2f;
-
+    
     Vector2 moveInput;
     Rigidbody2D rb;
     Animator animator;
@@ -41,7 +39,7 @@ public class Movement : MonoBehaviour
         Run();
         FlipSprite();
         ClimbLadder();
-        StartCoroutine(Die());
+        Die();
     }
 
 
@@ -105,18 +103,14 @@ public class Movement : MonoBehaviour
         }
     }
 
-    IEnumerator Die()
+    void Die()
     {        
         if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
         {
             isAlive = false;
             animator.SetTrigger("Dying");
             rb.velocity = deathKick;
-
-            yield return new WaitForSecondsRealtime(levelLoadDelay);
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-            SceneManager.LoadScene(currentSceneIndex);
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
     }
 }
