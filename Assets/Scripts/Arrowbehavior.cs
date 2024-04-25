@@ -6,7 +6,7 @@ using UnityEngine;
 public class Arrowbehavior : MonoBehaviour
 {
     Rigidbody2D rb;
-    [SerializeField]float arrowSpeed = 20f;
+    float arrowSpeed = 20f;
     Movement player;
     float xSpeed;
     

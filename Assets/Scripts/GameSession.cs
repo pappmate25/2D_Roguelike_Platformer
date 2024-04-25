@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,9 @@ public class GameSession : MonoBehaviour
 {
     int lives = 3;
     float levelLoadDelay = 1.5f;
+    int gold = 0;
+    [SerializeField]TextMeshProUGUI livesText;
+    [SerializeField]TextMeshProUGUI goldText;
 
     void Awake()
     {
@@ -21,6 +25,11 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        livesText.text = lives.ToString();
+        goldText.text = gold.ToString();
+    }
     public void ProcessPlayerDeath()
     {
         if(lives > 1)
@@ -33,12 +42,19 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    public void AddGold(int goldToAdd)
+    {
+        gold += goldToAdd;
+        goldText.text = gold.ToString();
+    }
+
     IEnumerator TakeLife()
     {
         lives--;
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);   
+        SceneManager.LoadScene(currentSceneIndex);
+        livesText.text = lives.ToString();
     }
 
     IEnumerator ResetGameSession()
