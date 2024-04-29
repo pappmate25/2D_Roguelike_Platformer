@@ -55,6 +55,7 @@ public class GameSession : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
         livesText.text = lives.ToString();
+        GlobalVariables.isAlive = true;
     }
 
     IEnumerator ResetGameSession()
@@ -62,5 +63,6 @@ public class GameSession : MonoBehaviour
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+        GlobalVariables.isAlive = true;
     }
 }
