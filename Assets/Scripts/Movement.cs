@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     [SerializeField] GameObject arrow;
     [SerializeField] Transform bow;
 
+    float dodgeSpeed = 10f;
 
     private void Start()
     {
@@ -72,7 +73,19 @@ public class Movement : MonoBehaviour
         }
 
     }
+    void OnDodge(InputValue value)
+    {
+        if (!isAlive)
+        {
+            return;
+        }
 
+        if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground", "Hidden Platform")))
+        {
+            rb.velocity += new Vector2(dodgeSpeed, 0f);
+        }
+
+    }
     void OnFire(InputValue value)
     {
         if (!isAlive)
