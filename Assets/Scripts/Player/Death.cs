@@ -28,7 +28,7 @@ public class Death : MonoBehaviour
 
     void Die()
     {
-        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
+        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")) && !GlobalVariables.isInvincible)
         {
             GlobalVariables.isAlive = false;
             animator.SetTrigger("Dying");

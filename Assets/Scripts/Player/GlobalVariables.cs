@@ -5,4 +5,5 @@ using UnityEngine;
 public static class GlobalVariables
 {
     public static bool isAlive = true;
+    public static bool isInvincible = false;
 }

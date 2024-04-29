@@ -16,6 +16,14 @@ public class Movement : MonoBehaviour
     BoxCollider2D shoeCollider;
     float gravityScaleAtStart;
 
+    //dodge
+    [SerializeField] public float dashSpeed = 20f;
+    [SerializeField] public float dashDuration = 0.2f;
+    [SerializeField] public float dashCooldown = 0.8f;
+    private float dashTimeLeft;
+    private float lastDash = -10f;
+    private bool isDashing = false;
+
 
     private void Start()
     {
@@ -34,6 +42,18 @@ public class Movement : MonoBehaviour
         Run();
         FlipSprite();
         ClimbLadder();
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time >= (lastDash + dashCooldown))
+        {
+            isDashing = true;
+            dashTimeLeft = dashDuration;
+            lastDash = Time.time;
+        }
+
+        if (isDashing)
+        {
+            Dash();
+        }
     }
 
 
@@ -58,7 +78,25 @@ public class Movement : MonoBehaviour
             rb.velocity += new Vector2(0f, jumpspeed);
         }
     }
-  
+    private void Dash()
+    {
+        if (dashTimeLeft > 0)
+        {
+            gameObject.layer = LayerMask.NameToLayer("InvinciblePlayer");       
+            rb.velocity = new Vector2(transform.localScale.x * dashSpeed, rb.velocity.y);
+            dashTimeLeft -= Time.deltaTime;
+            animator.SetTrigger("Dodge");
+
+        }
+        else
+        {
+            isDashing = false;
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            gameObject.layer = LayerMask.NameToLayer("Player");
+            animator.ResetTrigger("Dodge");
+        }
+    }
+
     void Run()
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * movementspeed, rb.velocity.y);
