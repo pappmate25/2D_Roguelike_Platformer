@@ -6,6 +6,10 @@ public class InventoryPanel : MonoBehaviour
 {
     public GameObject equipmentPanel;
 
+    private void Start()
+    {
+        equipmentPanel.SetActive(false);
+    }
 
     void Update()
     {
