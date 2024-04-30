@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameSession : MonoBehaviour
 {
     int lives = 3;
-    float levelLoadDelay = 1.5f;
-    int gold = 0;
+    float levelLoadDelay = 1.5f;    
     [SerializeField]TextMeshProUGUI livesText;
     [SerializeField]TextMeshProUGUI goldText;
 
@@ -28,7 +27,7 @@ public class GameSession : MonoBehaviour
     private void Start()
     {
         livesText.text = lives.ToString();
-        goldText.text = gold.ToString();
+        goldText.text = GlobalVariables.soul.ToString();
     }
     public void ProcessPlayerDeath()
     {
@@ -44,8 +43,8 @@ public class GameSession : MonoBehaviour
 
     public void AddGold(int goldToAdd)
     {
-        gold += goldToAdd;
-        goldText.text = gold.ToString();
+        GlobalVariables.soul += goldToAdd;
+        goldText.text = GlobalVariables.soul.ToString();
     }
 
     IEnumerator TakeLife()
