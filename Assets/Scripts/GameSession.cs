@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
-    int lives = 3;
-    float levelLoadDelay = 1.5f;    
+    
+    float levelLoadDelay = 1.5f;
     [SerializeField]TextMeshProUGUI livesText;
     [SerializeField]TextMeshProUGUI goldText;
 
@@ -26,12 +26,12 @@ public class GameSession : MonoBehaviour
 
     private void Start()
     {
-        livesText.text = lives.ToString();
+        livesText.text = GlobalVariables.lives.ToString();
         goldText.text = GlobalVariables.soul.ToString();
     }
     public void ProcessPlayerDeath()
     {
-        if(lives > 1)
+        if(GlobalVariables.lives > 1)
         {
             StartCoroutine(TakeLife());
         }
@@ -49,11 +49,11 @@ public class GameSession : MonoBehaviour
 
     IEnumerator TakeLife()
     {
-        lives--;
+        GlobalVariables.lives--;
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
-        livesText.text = lives.ToString();
+        livesText.text = GlobalVariables.lives.ToString();
         GlobalVariables.isAlive = true;
     }
 

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8678560715466009798}
   - component: {fileID: 8772326206882498104}
   - component: {fileID: 709815282777403386}
+  - component: {fileID: 3617502319789840593}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -292,6 +293,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 8779072783951777045, guid: 889f9e375c26ace49a5a50459f0991b9, type: 3}
   bow: {fileID: 6949626671560228328}
+--- !u!114 &3617502319789840593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470629880152398270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74b21573809b39439130c87b9414950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  damage: 10
+  soul: 0
 --- !u!1 &3945809099503906711
 GameObject:
   m_ObjectHideFlags: 0

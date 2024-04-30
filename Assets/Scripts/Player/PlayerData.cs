@@ -5,21 +5,22 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int health;
+    public int currentLevel;
+    public int lives;
     public int damage;
     public int soul;
     public float[] position;
 
     public PlayerData(Player player)
     {
-        health = player.health;
+        currentLevel = player.currentLevel;
+        lives = player.lives;
         damage = player.damage;
         soul = player.soul;
 
-        position = new float[3];
+        position = new float[2];
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
-        position[2] = player.transform.position.z;
     }
 
 }
