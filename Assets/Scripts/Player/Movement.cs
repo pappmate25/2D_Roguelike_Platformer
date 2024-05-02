@@ -17,13 +17,13 @@ public class Movement : MonoBehaviour
     float gravityScaleAtStart;
 
     //dodge
-    [SerializeField] public float dashSpeed = 20f;
-    [SerializeField] public float dashDuration = 0.2f;
-    [SerializeField] public float dashCooldown = 0.8f;
+    public float dashSpeed = 20f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 0.8f;
     private float dashTimeLeft;
     private float lastDash = -10f;
     private bool isDashing = false;
-
+    
 
     private void Start()
     {
