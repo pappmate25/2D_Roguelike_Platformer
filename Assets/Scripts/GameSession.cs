@@ -10,6 +10,7 @@ public class GameSession : MonoBehaviour
     float levelLoadDelay = 1.5f;
     [SerializeField]TextMeshProUGUI livesText;
     [SerializeField]TextMeshProUGUI goldText;
+    [SerializeField]TextMeshProUGUI attackText;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class GameSession : MonoBehaviour
     {
         livesText.text = GlobalVariables.lives.ToString();
         goldText.text = GlobalVariables.soul.ToString();
+        attackText.text = FindObjectOfType<Player>().damage.ToString();
     }
     public void ProcessPlayerDeath()
     {
