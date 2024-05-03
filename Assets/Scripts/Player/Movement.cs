@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (!GlobalVariables.isAlive)
+        if (!GlobalVariables.isAlive || GlobalVariables.isShopOpen)
         {
             return;
         }
@@ -68,7 +68,7 @@ public class Movement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (!GlobalVariables.isAlive)
+        if (!GlobalVariables.isAlive || GlobalVariables.isShopOpen)
         {
             return;
         }

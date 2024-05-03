@@ -29,7 +29,14 @@ public class GameSession : MonoBehaviour
     {
         livesText.text = GlobalVariables.lives.ToString();
         goldText.text = GlobalVariables.soul.ToString();
-        attackText.text = FindObjectOfType<Player>().damage.ToString();
+        attackText.text = GlobalVariables.damage.ToString();
+    }
+
+    private void Update()
+    {
+        livesText.text = GlobalVariables.lives.ToString();
+        goldText.text = GlobalVariables.soul.ToString();
+        attackText.text = GlobalVariables.damage.ToString();
     }
     public void ProcessPlayerDeath()
     {
@@ -56,6 +63,7 @@ public class GameSession : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
         livesText.text = GlobalVariables.lives.ToString();
+        GlobalVariables.firstRun = false;
         GlobalVariables.isAlive = true;
     }
 
@@ -64,6 +72,7 @@ public class GameSession : MonoBehaviour
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+        GlobalVariables.firstRun = true;
         GlobalVariables.isAlive = true;
     }
 }

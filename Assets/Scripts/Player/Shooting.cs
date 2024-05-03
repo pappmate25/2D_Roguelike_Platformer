@@ -15,7 +15,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (!GlobalVariables.isAlive)
+        if (!GlobalVariables.isAlive || GlobalVariables.isShopOpen)
         {
             return;
         }
@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour
 
     void OnFire(InputValue value)
     {
-        if (!GlobalVariables.isAlive)
+        if (!GlobalVariables.isAlive || GlobalVariables.isShopOpen)
         {
             return;
         }

@@ -10,6 +10,7 @@ public class PlayerData
     public int damage;
     public int soul;
     public float[] position;
+    public bool isShopOpen;
 
     public PlayerData(Player player)
     {
@@ -17,6 +18,7 @@ public class PlayerData
         lives = player.lives;
         damage = player.damage;
         soul = player.soul;
+        isShopOpen = player.isShopOpen;
 
         position = new float[2];
         position[0] = player.transform.position.x;

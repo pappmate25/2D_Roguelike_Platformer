@@ -133,11 +133,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3747580793334857457, guid: e2f573557e3c0b64787d2d15466d556a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.62
+      value: -14.68
       objectReference: {fileID: 0}
     - target: {fileID: 3747580793334857457, guid: e2f573557e3c0b64787d2d15466d556a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -3.46
       objectReference: {fileID: 0}
     - target: {fileID: 3747580793334857457, guid: e2f573557e3c0b64787d2d15466d556a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23612,6 +23612,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SavePlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 1087980489196587782, guid: d055603f69cfae34b9994e922ea654b3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4631496399730619249, guid: d055603f69cfae34b9994e922ea654b3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -25646,11 +25650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8698934921594481695, guid: c1448ddbd8c7cfe498434382482a42cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.31
+      value: -25.87
       objectReference: {fileID: 0}
     - target: {fileID: 8698934921594481695, guid: c1448ddbd8c7cfe498434382482a42cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.07
+      value: -17.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
