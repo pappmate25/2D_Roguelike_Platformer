@@ -12,4 +12,6 @@ public static class GlobalVariables
     public static int soul = 200;
     public static int lives = 3;   
     public static int damage = 10;
+    public static float critHitChance = 10f;
+    public static float critHitDMG = 10f;
 }

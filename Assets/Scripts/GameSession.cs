@@ -11,6 +11,8 @@ public class GameSession : MonoBehaviour
     [SerializeField]TextMeshProUGUI livesText;
     [SerializeField]TextMeshProUGUI soulText;
     [SerializeField]TextMeshProUGUI attackText;
+    [SerializeField]TextMeshProUGUI critHitChanceText;
+    [SerializeField]TextMeshProUGUI critHitDMGText;
 
     void Awake()
     {
@@ -30,6 +32,8 @@ public class GameSession : MonoBehaviour
         livesText.text = GlobalVariables.lives.ToString();
         soulText.text = GlobalVariables.soul.ToString();
         attackText.text = GlobalVariables.damage.ToString();
+        critHitChanceText.text = GlobalVariables.damage.ToString() + " %";
+        critHitDMGText.text = GlobalVariables.damage.ToString() + " %";
     }
 
     private void Update()
@@ -37,6 +41,8 @@ public class GameSession : MonoBehaviour
         livesText.text = GlobalVariables.lives.ToString();
         soulText.text = GlobalVariables.soul.ToString();
         attackText.text = GlobalVariables.damage.ToString();
+        critHitChanceText.text = GlobalVariables.damage.ToString() + " %";
+        critHitDMGText.text = GlobalVariables.damage.ToString() + " %";
     }
     public void ProcessPlayerDeath()
     {
