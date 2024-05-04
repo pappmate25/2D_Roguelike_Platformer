@@ -8,6 +8,8 @@ public class PlayerData
     public int currentLevel;
     public int lives;
     public int damage;
+    public float critHitChance;
+    public float critHitDMG;
     public int soul;
     public float[] position;
     public bool isShopOpen;
@@ -17,6 +19,8 @@ public class PlayerData
         currentLevel = player.currentLevel;
         lives = player.lives;
         damage = player.damage;
+        critHitChance = player.critHitChance;
+        critHitDMG = player.critHitDMG;
         soul = player.soul;
         isShopOpen = player.isShopOpen;
 

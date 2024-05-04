@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class GameSession : MonoBehaviour
     [SerializeField]TextMeshProUGUI critHitChanceText;
     [SerializeField]TextMeshProUGUI critHitDMGText;
 
+    public int maxHealth = 3;
+    public Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
     void Awake()
     {
         int numGameSessions = FindObjectsOfType<GameSession>().Length;
@@ -32,8 +38,8 @@ public class GameSession : MonoBehaviour
         livesText.text = GlobalVariables.lives.ToString();
         soulText.text = GlobalVariables.soul.ToString();
         attackText.text = GlobalVariables.damage.ToString();
-        critHitChanceText.text = GlobalVariables.damage.ToString() + " %";
-        critHitDMGText.text = GlobalVariables.damage.ToString() + " %";
+        critHitChanceText.text = GlobalVariables.critHitChance.ToString() + " %";
+        critHitDMGText.text = GlobalVariables.critHitDMG.ToString() + " %";
     }
 
     private void Update()
@@ -41,8 +47,21 @@ public class GameSession : MonoBehaviour
         livesText.text = GlobalVariables.lives.ToString();
         soulText.text = GlobalVariables.soul.ToString();
         attackText.text = GlobalVariables.damage.ToString();
-        critHitChanceText.text = GlobalVariables.damage.ToString() + " %";
-        critHitDMGText.text = GlobalVariables.damage.ToString() + " %";
+        critHitChanceText.text = GlobalVariables.critHitChance.ToString() + " %";
+        critHitDMGText.text = GlobalVariables.critHitDMG.ToString() + " %";
+        
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            //Show full or empty heart based on current health
+            if (i < Convert.ToInt32(livesText.text))
+                hearts[i].sprite = fullHeart;
+            else
+                hearts[i].sprite = emptyHeart;
+
+            // Show or hide the heart image based on max health
+            hearts[i].enabled = i < maxHealth;
+        }
+
     }
     public void ProcessPlayerDeath()
     {

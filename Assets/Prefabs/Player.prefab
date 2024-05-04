@@ -308,8 +308,13 @@ MonoBehaviour:
   currentLevel: 0
   lives: 3
   damage: 10
+  critHitChance: 0
+  critHitDMG: 0
   soul: 0
-  helmetButton: {fileID: 0}
+  isShopOpen: 1
+  attackUpgradeButton: {fileID: 0}
+  cHitChanceUpgradeButton: {fileID: 0}
+  cHitDMGUpgradeButton: {fileID: 0}
 --- !u!1 &3945809099503906711
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +340,7 @@ Transform:
   m_GameObject: {fileID: 3945809099503906711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.437, y: 0.196, z: 0}
+  m_LocalPosition: {x: 0.09, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

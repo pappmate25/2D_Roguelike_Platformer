@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public int currentLevel;
     public int lives = GlobalVariables.lives;
     public int damage = GlobalVariables.damage;
+    public float critHitChance = GlobalVariables.critHitChance;
+    public float critHitDMG = GlobalVariables.critHitDMG;
     public int soul = GlobalVariables.soul;
     int helmetPrice = 100;
     int chestPlatePrice = 100;
@@ -16,7 +18,9 @@ public class Player : MonoBehaviour
 
     //helmet purchase
     public bool isShopOpen = GlobalVariables.isShopOpen;
-    public Button helmetButton;
+    public Button attackUpgradeButton;
+    public Button cHitChanceUpgradeButton;
+    public Button cHitDMGUpgradeButton;
     
 
     public void SavePlayer()
@@ -24,6 +28,8 @@ public class Player : MonoBehaviour
         soul = GlobalVariables.soul;
         lives = GlobalVariables.lives;
         damage = GlobalVariables.damage;
+        critHitChance = GlobalVariables.critHitChance;
+        critHitDMG = GlobalVariables.critHitDMG;
         isShopOpen = GlobalVariables.isShopOpen;
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         SaveSystem.SavePlayer(this);
@@ -36,11 +42,15 @@ public class Player : MonoBehaviour
         currentLevel = data.currentLevel;
         lives = data.lives;
         damage = data.damage;
+        critHitChance = data.critHitChance;
+        critHitDMG = data.critHitDMG;
         soul = data.soul;
         isShopOpen = data.isShopOpen;
         GlobalVariables.soul = soul;
         GlobalVariables.lives = lives;      
         GlobalVariables.damage = damage;
+        GlobalVariables.critHitChance = critHitChance;
+        GlobalVariables.critHitDMG = critHitDMG;
         GlobalVariables.isShopOpen = isShopOpen;
         SceneManager.LoadScene(currentLevel);
 
@@ -53,55 +63,49 @@ public class Player : MonoBehaviour
         Debug.Log("current_level: " + currentLevel);
     }
 
-    public void EquipItem()
+
+    public void AttackPlus()
     {
-        if(helmetButton.tag == "Helmet")
+        if (GlobalVariables.soul >= helmetPrice)
         {
-            if(GlobalVariables.soul >= helmetPrice)
-            {
-                GlobalVariables.damage += 10;
-                GlobalVariables.soul -= helmetPrice;
-                Debug.Log("helmet purchased");
-                Debug.Log("player attack: " + GlobalVariables.damage);
-                helmetButton.interactable = false;
-            }           
-            else
-            {
-                Debug.Log("Dont have enought soul to puchase a helmet");
-            }
+            GlobalVariables.damage += 10;
+            GlobalVariables.soul -= helmetPrice;
+            Debug.Log("Attack Upgrade purchased");
+            Debug.Log("player attack: " + GlobalVariables.damage);
         }
-        
-
-        else if(gameObject.tag == "Chest Plate")
+        else
         {
-            if (GlobalVariables.soul >= chestPlatePrice)
-            {
-                damage += 5;
-                GlobalVariables.soul -= chestPlatePrice;
-                GlobalVariables.lives += 2;
-                Debug.Log("chest plate purchased");
-            }
-            else
-            {
-                Debug.Log("Dont have enought soul to puchase a chest plate");
-            }
+            Debug.Log("Dont have enought soul to puchase this upgrade");
+        }       
+    }
 
+    public void critHitChancePlus()
+    {       
+        if (GlobalVariables.soul >= chestPlatePrice)
+        {
+            GlobalVariables.critHitChance += 10;
+            GlobalVariables.soul -= chestPlatePrice;
+            Debug.Log("Crit chance Upgrade purchased");
+            Debug.Log("player critHitChance: " + GlobalVariables.critHitChance);
         }
-        
-
-        else if(gameObject.tag == "Boots")
+        else
         {
-            if(GlobalVariables.soul >= bootsPrice)
-            {
-                GlobalVariables.soul -= bootsPrice;
-                //ugorjon magasabbra ?
-                Debug.Log("Boots purchased");
-            }
-            else
-            {
-                Debug.Log("Dont have enought soul to puchase");
-            }
-        }        
+            Debug.Log("Dont have enought soul to puchase this upgrade");
+        }
+    }
+    public void critHitDMGPlus()
+    {   
+        if(GlobalVariables.soul >= bootsPrice)
+        {
+            GlobalVariables.critHitDMG += 10;
+            GlobalVariables.soul -= chestPlatePrice;
+            Debug.Log("Crit DMG Upgrade purchased");
+            Debug.Log("player crithitdmg: " + GlobalVariables.critHitDMG);
+        }
+        else
+        {
+            Debug.Log("Dont have enought soul to puchase this upgrade");
+        }  
     }
 
 }
