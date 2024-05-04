@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4991580071616448995}
   - component: {fileID: 4134155640388443389}
   - component: {fileID: 4814303054631174783}
-  - component: {fileID: -7206262914406045128}
   - component: {fileID: 1613824365405095707}
+  - component: {fileID: 2803519668748591831}
   m_Layer: 15
   m_Name: Arrow
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8779072783951777045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 1631128323
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1eb116b4f392e114bb6011a0687b47db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1e21bf4b68afa54482f651487297115, type: 3}
   m_Color: {r: 0.5377358, g: 0.53519934, b: 0.53519934, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,8 +114,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &-7206262914406045128
-PolygonCollider2D:
+--- !u!114 &1613824365405095707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779072783951777045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5250ad93bec4a0f40ba84e79c917b867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &2803519668748591831
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,37 +158,16 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0023884326, y: 0.0007961467}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6875, y: 0.21875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.20473468, y: 0.0625}
-      - {x: -0.5, y: -0.46875}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.48038065, y: -0.41017386}
-      - {x: 0.37485912, y: 0.042880695}
-      - {x: 0.3674341, y: 0.06039717}
-      - {x: 0.19716875, y: 0.06446193}
-  m_UseDelaunayMesh: 0
---- !u!114 &1613824365405095707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779072783951777045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5250ad93bec4a0f40ba84e79c917b867, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowSpeed: 20
+  serializedVersion: 2
+  m_Size: {x: 0.7304919, y: 0.23944981}
+  m_EdgeRadius: 0

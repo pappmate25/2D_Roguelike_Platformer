@@ -7,13 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    float levelLoadDelay = 1f;
+    float levelLoadDelay = 1.5f;
+    Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && GlobalVariables.isAlive)
         {
-            StartCoroutine(LoadNextLevel());     
+            StartCoroutine(LoadNextLevel());
+            animator.SetTrigger("Exit trigger");
         }
     }
 

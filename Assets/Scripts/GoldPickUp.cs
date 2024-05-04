@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GoldPickUp : MonoBehaviour
 {
-    int goldsForPickUp = 100;
+    int soulsForPickUp = 100;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player" && GlobalVariables.isAlive)
         {
-            FindObjectOfType<GameSession>().AddGold(goldsForPickUp);
+            FindObjectOfType<GameSession>().AddSoul(soulsForPickUp);
             Destroy(gameObject);
         }
     }

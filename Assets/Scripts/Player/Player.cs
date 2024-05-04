@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         position.y = data.position[1];
 
         transform.position = position;
-        Debug.Log("gold: " + soul);
+        Debug.Log("souls: " + soul);
         Debug.Log("current_level: " + currentLevel);
     }
 

@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 5378645461310718935}
   - component: {fileID: 3866203480762313506}
   m_Layer: 5
-  m_Name: gold
+  m_Name: Souls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesText: {fileID: 9216066203288950625}
-  goldText: {fileID: 3866203480762313506}
+  soulText: {fileID: 3866203480762313506}
   attackText: {fileID: 4811020151798234445}
 --- !u!1 &2171832891286744041
 GameObject:

@@ -9,7 +9,7 @@ public class GameSession : MonoBehaviour
     
     float levelLoadDelay = 1.5f;
     [SerializeField]TextMeshProUGUI livesText;
-    [SerializeField]TextMeshProUGUI goldText;
+    [SerializeField]TextMeshProUGUI soulText;
     [SerializeField]TextMeshProUGUI attackText;
 
     void Awake()
@@ -28,14 +28,14 @@ public class GameSession : MonoBehaviour
     private void Start()
     {
         livesText.text = GlobalVariables.lives.ToString();
-        goldText.text = GlobalVariables.soul.ToString();
+        soulText.text = GlobalVariables.soul.ToString();
         attackText.text = GlobalVariables.damage.ToString();
     }
 
     private void Update()
     {
         livesText.text = GlobalVariables.lives.ToString();
-        goldText.text = GlobalVariables.soul.ToString();
+        soulText.text = GlobalVariables.soul.ToString();
         attackText.text = GlobalVariables.damage.ToString();
     }
     public void ProcessPlayerDeath()
@@ -50,10 +50,10 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    public void AddGold(int goldToAdd)
+    public void AddSoul(int soulToAdd)
     {
-        GlobalVariables.soul += goldToAdd;
-        goldText.text = GlobalVariables.soul.ToString();
+        GlobalVariables.soul += soulToAdd;
+        soulText.text = GlobalVariables.soul.ToString();
     }
 
     IEnumerator TakeLife()
