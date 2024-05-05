@@ -88,7 +88,7 @@ public class GameSession : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
         livesText.text = GlobalVariables.lives.ToString();
-        GlobalVariables.firstRun = false;
+        GlobalVariables.newLevel = false;
         GlobalVariables.isAlive = true;
     }
 
@@ -97,7 +97,7 @@ public class GameSession : MonoBehaviour
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         SceneManager.LoadScene(0);
         Destroy(gameObject);
-        GlobalVariables.firstRun = true;
+        GlobalVariables.newLevel = true;
         GlobalVariables.isAlive = true;
     }
 }

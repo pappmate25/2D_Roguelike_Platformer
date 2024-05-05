@@ -7,7 +7,7 @@ public static class GlobalVariables
 {
     public static bool isAlive = true;
     public static bool isInvincible = false;
-    public static bool firstRun = true;
+    public static bool newLevel = true;
     public static bool isShopOpen = true;
     public static int soul = 300;
     public static int lives = 3;   

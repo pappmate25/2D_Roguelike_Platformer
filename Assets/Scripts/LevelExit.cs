@@ -32,7 +32,7 @@ public class LevelExit : MonoBehaviour
         {
             nextSceneIndex = 0;
         }
-
+        GlobalVariables.newLevel = true;
         SceneManager.LoadScene(nextSceneIndex);      
     }
 }

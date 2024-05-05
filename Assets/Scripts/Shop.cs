@@ -11,7 +11,7 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1 && GlobalVariables.firstRun)
+        if (GlobalVariables.newLevel)
         {
             shopPanel.SetActive(true);
             canOpen = true;

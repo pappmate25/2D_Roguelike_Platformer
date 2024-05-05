@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     int chestPlatePrice = 100;
     int bootsPrice = 100;
 
-    //helmet purchase
+    //purchase
     public bool isShopOpen = GlobalVariables.isShopOpen;
     public Button attackUpgradeButton;
     public Button cHitChanceUpgradeButton;
