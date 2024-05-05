@@ -9,7 +9,7 @@ public static class GlobalVariables
     public static bool isInvincible = false;
     public static bool newLevel = true;
     public static bool isShopOpen = true;
-    public static int soul = 300;
+    public static int soul = 100;
     public static int lives = 3;   
     public static int damage = 10;
     public static float critHitChance = 0f;

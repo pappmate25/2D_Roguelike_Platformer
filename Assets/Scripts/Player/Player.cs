@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
     public float critHitChance = GlobalVariables.critHitChance;
     public float critHitDMG = GlobalVariables.critHitDMG;
     public int soul = GlobalVariables.soul;
-    int helmetPrice = 100;
-    int chestPlatePrice = 100;
-    int bootsPrice = 100;
+    int attackUpgradePrice = 100;
+    int cHitChanceUpgradePrice = 200;
+    int cHitDMGUpgradePrice = 200;
 
     //purchase
     public bool isShopOpen = GlobalVariables.isShopOpen;
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
         GlobalVariables.critHitDMG = critHitDMG;
         GlobalVariables.isShopOpen = isShopOpen;
         SceneManager.LoadScene(currentLevel);
+        GlobalVariables.newLevel = false;
 
         Vector2 position;
         position.x = data.position[0];
@@ -66,10 +67,10 @@ public class Player : MonoBehaviour
 
     public void AttackPlus()
     {
-        if (GlobalVariables.soul >= helmetPrice)
+        if (GlobalVariables.soul >= attackUpgradePrice)
         {
             GlobalVariables.damage += 10;
-            GlobalVariables.soul -= helmetPrice;
+            GlobalVariables.soul -= attackUpgradePrice;
             Debug.Log("Attack Upgrade purchased");
             Debug.Log("player attack: " + GlobalVariables.damage);
         }
@@ -81,10 +82,10 @@ public class Player : MonoBehaviour
 
     public void critHitChancePlus()
     {       
-        if (GlobalVariables.soul >= chestPlatePrice)
+        if (GlobalVariables.soul >= cHitChanceUpgradePrice)
         {
             GlobalVariables.critHitChance += 10;
-            GlobalVariables.soul -= chestPlatePrice;
+            GlobalVariables.soul -= cHitChanceUpgradePrice;
             Debug.Log("Crit chance Upgrade purchased");
             Debug.Log("player critHitChance: " + GlobalVariables.critHitChance);
         }
@@ -95,10 +96,10 @@ public class Player : MonoBehaviour
     }
     public void critHitDMGPlus()
     {   
-        if(GlobalVariables.soul >= bootsPrice)
+        if(GlobalVariables.soul >= cHitDMGUpgradePrice)
         {
             GlobalVariables.critHitDMG += 10;
-            GlobalVariables.soul -= chestPlatePrice;
+            GlobalVariables.soul -= cHitChanceUpgradePrice;
             Debug.Log("Crit DMG Upgrade purchased");
             Debug.Log("player crithitdmg: " + GlobalVariables.critHitDMG);
         }
