@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 7793498769603187974}
   m_Layer: 5
   m_Name: Attack+_Button
-  m_TagString: Attack+
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 6557202334977683786}
   m_Layer: 5
   m_Name: cHitDMG+_Text
-  m_TagString: Boots
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 6643493864024170580}
   m_Layer: 5
   m_Name: cHitChance+_Button
-  m_TagString: cHitChance+
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1373,7 +1373,7 @@ GameObject:
   - component: {fileID: 3780666921084925621}
   m_Layer: 5
   m_Name: cHitDMG+_Button
-  m_TagString: cHitDMG+
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -23,17 +23,7 @@ public class Arrowbehavior : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(xSpeed, 0f);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-        {
-            Destroy(collision.gameObject);
-        }
-
-        Destroy(gameObject);
-    }
+    }  
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

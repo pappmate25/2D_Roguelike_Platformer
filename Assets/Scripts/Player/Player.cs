@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public Button cHitChanceUpgradeButton;
     public Button cHitDMGUpgradeButton;
     
-
+    public bool doneOneRun = GlobalVariables.doneOneRun;
     public void SavePlayer()
     {
         soul = GlobalVariables.soul;
@@ -31,9 +31,23 @@ public class Player : MonoBehaviour
         critHitChance = GlobalVariables.critHitChance;
         critHitDMG = GlobalVariables.critHitDMG;
         isShopOpen = GlobalVariables.isShopOpen;
+        doneOneRun = GlobalVariables.doneOneRun;
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         SaveSystem.SavePlayer(this);
         Debug.Log("The game is saved, current level: " + currentLevel);
+    }
+
+    public void SavePlayerStats()
+    {
+        soul = GlobalVariables.soul;
+        lives = GlobalVariables.lives;
+        damage = GlobalVariables.damage;
+        critHitChance = GlobalVariables.critHitChance;
+        critHitDMG = GlobalVariables.critHitDMG;
+        isShopOpen = GlobalVariables.isShopOpen;
+        doneOneRun = GlobalVariables.doneOneRun;
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        SaveSystem.SavePlayer(this);
     }
 
     public void LoadPlayer()
@@ -46,12 +60,14 @@ public class Player : MonoBehaviour
         critHitDMG = data.critHitDMG;
         soul = data.soul;
         isShopOpen = data.isShopOpen;
+        doneOneRun = data.doneOneRun;
         GlobalVariables.soul = soul;
         GlobalVariables.lives = lives;      
         GlobalVariables.damage = damage;
         GlobalVariables.critHitChance = critHitChance;
         GlobalVariables.critHitDMG = critHitDMG;
         GlobalVariables.isShopOpen = isShopOpen;
+        GlobalVariables.doneOneRun = doneOneRun;
         SceneManager.LoadScene(currentLevel);
         GlobalVariables.newLevel = false;
 
@@ -62,6 +78,22 @@ public class Player : MonoBehaviour
         transform.position = position;
         Debug.Log("souls: " + soul);
         Debug.Log("current_level: " + currentLevel);
+    }
+    public void LoadPlayerStats()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        damage = data.damage;
+        critHitChance = data.critHitChance;
+        critHitDMG = data.critHitDMG;
+        soul = data.soul;
+        isShopOpen = data.isShopOpen;
+        doneOneRun = data.doneOneRun;
+        GlobalVariables.soul = soul;
+        GlobalVariables.damage = damage;
+        GlobalVariables.critHitChance = critHitChance;
+        GlobalVariables.critHitDMG = critHitDMG;
+        GlobalVariables.newLevel = true;
+        GlobalVariables.doneOneRun = doneOneRun;
     }
 
 

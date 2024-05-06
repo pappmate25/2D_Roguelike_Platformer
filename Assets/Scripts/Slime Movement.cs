@@ -18,8 +18,11 @@ public class SlimeMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        moveSpeed = -moveSpeed;
-        FlipSprite();
+        if(collision.tag == "Map")
+        {
+            moveSpeed = -moveSpeed;
+            FlipSprite();
+        }
     }
 
     void FlipSprite()

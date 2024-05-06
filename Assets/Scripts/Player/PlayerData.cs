@@ -13,6 +13,7 @@ public class PlayerData
     public int soul;
     public float[] position;
     public bool isShopOpen;
+    public bool doneOneRun;
 
     public PlayerData(Player player)
     {
@@ -23,6 +24,7 @@ public class PlayerData
         critHitDMG = player.critHitDMG;
         soul = player.soul;
         isShopOpen = player.isShopOpen;
+        doneOneRun = player.doneOneRun;
 
         position = new float[2];
         position[0] = player.transform.position.x;

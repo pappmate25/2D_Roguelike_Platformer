@@ -5,9 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Attack+
-  - cHitChance+
-  - cHitDMG+
+  - Arrow
+  - Map
   layers:
   - Default
   - TransparentFX

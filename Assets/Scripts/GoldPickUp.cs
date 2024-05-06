@@ -1,14 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GoldPickUp : MonoBehaviour
 {
-    int soulsForPickUp = 100;
+    private System.Random random;
+    int soulsForPickUp;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && GlobalVariables.isAlive)
+        random = new System.Random(DateTime.Now.Millisecond);
+        soulsForPickUp = random.Next(0, 101);
+        Debug.Log("random soul amount: " + soulsForPickUp);
+        soulsForPickUp = (soulsForPickUp - soulsForPickUp % 10) + 10;
+        Debug.Log("Rounded soul amount: " + soulsForPickUp);
+        if (collision.tag == "Player" && GlobalVariables.isAlive)
         {
             FindObjectOfType<GameSession>().AddSoul(soulsForPickUp);
             Destroy(gameObject);

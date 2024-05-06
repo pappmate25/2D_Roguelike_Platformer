@@ -9,10 +9,14 @@ public class LevelExit : MonoBehaviour
 {
     float levelLoadDelay = 1.5f;
     Animator animator;
+    public GameObject playerObject;
+    Player player;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        player = playerObject.GetComponent<Player>();
+        
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,7 +34,9 @@ public class LevelExit : MonoBehaviour
         int nextSceneIndex = currentSceneIndex + 1;
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) 
         {
+            GlobalVariables.doneOneRun = true;
             nextSceneIndex = 0;
+            player.SavePlayerStats();            
         }
         GlobalVariables.newLevel = true;
         SceneManager.LoadScene(nextSceneIndex);      
