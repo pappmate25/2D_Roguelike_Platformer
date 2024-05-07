@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Arrow
   - Map
+  - Audio
   layers:
   - Default
   - TransparentFX
