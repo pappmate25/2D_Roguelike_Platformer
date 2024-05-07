@@ -8,8 +8,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
     //Itt kell megadni amikre akarunk rakni hangot
     public AudioClip background;
-    public AudioClip hoverFx;
-    public AudioClip clickFx;
     private void Start()
     {
         musicSource.clip = background;
@@ -19,12 +17,5 @@ public class AudioManager : MonoBehaviour
     {
         SFXSource.PlayOneShot(clip);
     }
-    public void HoverSound()
-    {
-        musicSource.PlayOneShot(hoverFx);
-    }
-    public void ClickSound()
-    {
-        musicSource.PlayOneShot(clickFx);
-    }
+
 }
