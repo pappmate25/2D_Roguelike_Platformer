@@ -8,7 +8,11 @@ public class SlimeHealth : MonoBehaviour
     bool isDead = false;
     bool isSoulDropped = false;
     int maxHealth = 100;
-
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Update()
     {
         if (isDead && !isSoulDropped)
@@ -45,6 +49,7 @@ public class SlimeHealth : MonoBehaviour
         if(maxHealth > 0)
         {
             maxHealth -= GlobalVariables.damage;
+            audioManager.PlayOneShot(audioManager.slimeHit);
         }
         else
         {

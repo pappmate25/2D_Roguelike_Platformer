@@ -17,13 +17,13 @@ public class AudioManager : MonoBehaviour
     public AudioClip dodge;
     public AudioClip JUMP;
     public AudioClip ladderClimb;
-    public AudioClip landing;
+    public AudioClip pickup;
     public AudioClip walking;
     public AudioClip gameStart;
     public AudioClip selectHover;
     public AudioClip selected;
 
-    public float delay = 0f;
+    public float delay = 35f;
 
     private void Start()
     {
@@ -38,7 +38,9 @@ public class AudioManager : MonoBehaviour
     public void PlayDelayed(AudioClip clip)
     {
         SFXSource.clip= clip;
+        
         SFXSource.PlayDelayed(delay);
+        
 
     }
 

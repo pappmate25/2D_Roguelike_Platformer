@@ -7,7 +7,11 @@ public class GoldPickUp : MonoBehaviour
 {
     private System.Random random;
     int soulsForPickUp;
-
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,8 +20,10 @@ public class GoldPickUp : MonoBehaviour
         Debug.Log("random soul amount: " + soulsForPickUp);
         soulsForPickUp = (soulsForPickUp - soulsForPickUp % 10) + 10;
         Debug.Log("Rounded soul amount: " + soulsForPickUp);
+        audioManager.PlayDelayed(audioManager.pickup);
         if (collision.tag == "Player" && GlobalVariables.isAlive)
         {
+            
             FindObjectOfType<GameSession>().AddSoul(soulsForPickUp);
             Destroy(gameObject);
         }

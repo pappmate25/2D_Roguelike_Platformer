@@ -9,7 +9,11 @@ public class Death : MonoBehaviour
     Rigidbody2D rb;
     Vector2 deathKick = new Vector2(1f, 15f);
 
-
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,6 +28,7 @@ public class Death : MonoBehaviour
             return;
         }
         Die();
+       
     }
 
     void Die()
@@ -34,6 +39,7 @@ public class Death : MonoBehaviour
             animator.SetTrigger("Dying");
             rb.velocity = deathKick;
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            audioManager.PlayOneShot(audioManager.character_hurt);
         }
     }
 }

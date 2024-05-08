@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     }
     public void NewGame()
     {
-        audioManager.PlayOneShot(audioManager.selected);
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         GlobalVariables.lives = 3;
         GlobalVariables.isShopOpen = true;
@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewRun()
     {
+        audioManager.PlayOneShot(audioManager.selected);
         player.LoadPlayerStats();
         if (GlobalVariables.doneOneRun)
         {
@@ -45,6 +46,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        audioManager.PlayOneShot(audioManager.selected);
         Debug.Log("Quit");
         Application.Quit();
     }

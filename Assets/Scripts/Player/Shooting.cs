@@ -8,6 +8,11 @@ public class Shooting : MonoBehaviour
     Animator animator;
     [SerializeField] GameObject arrow;
     [SerializeField] Transform bow;
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -36,6 +41,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetTrigger("Shooting");
+            audioManager.PlayOneShot(audioManager.bow);
         }
     }
 }

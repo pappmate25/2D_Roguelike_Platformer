@@ -53,6 +53,7 @@ public class Movement : MonoBehaviour
             isDashing = true;
             dashTimeLeft = dashDuration;
             lastDash = Time.time;
+            audioManager.PlayOneShot(audioManager.dodge);
         }
 
         if (isDashing)
@@ -71,7 +72,7 @@ public class Movement : MonoBehaviour
             return;
         }
         moveInput = value.Get<Vector2>();
-        audioManager.PlayDelayed(audioManager.walking);
+        
     }
 
     void OnJump(InputValue value)
@@ -98,6 +99,7 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(transform.localScale.x * dashSpeed, rb.velocity.y);
             dashTimeLeft -= Time.deltaTime;
             animator.SetTrigger("Dodge");
+            
 
         }
         else
@@ -111,11 +113,13 @@ public class Movement : MonoBehaviour
 
     void Run()
     {
+        
         Vector2 playerVelocity = new Vector2(moveInput.x * movementspeed, rb.velocity.y);
         rb.velocity = playerVelocity;
 
         bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
         animator.SetBool("isRunning", playerHasHorizontalSpeed);
+        
     }
 
     void FlipSprite()
@@ -130,13 +134,15 @@ public class Movement : MonoBehaviour
 
     void ClimbLadder()
     {
+
         if (shoeCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
-          
+            
             Vector2 climbVelocity = new Vector2(rb.velocity.x, moveInput.y * climbspeed);
             rb.velocity = climbVelocity;
             rb.gravityScale = 0f;
             animator.SetBool("isClimbing", true);
+            
         }
         else
         {

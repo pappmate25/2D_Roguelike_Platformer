@@ -24291,13 +24291,13 @@ MonoBehaviour:
   SFXSource: {fileID: 86875108}
   background: {fileID: 8300000, guid: 0d6b12b7970cd8b4998af1a91d6fbd36, type: 3}
   bow: {fileID: 8300000, guid: 5a3b962742f167a4483567b64fadc535, type: 3}
-  character_hurt: {fileID: 8300000, guid: 5fcd659c9ad5a4046b9bc05cb9088581, type: 3}
+  character_hurt: {fileID: 8300000, guid: 13fdad1bff33791459a5be356d190a52, type: 3}
   death: {fileID: 8300000, guid: 9a9128ff75e3aed45a21f6bbf175fa2c, type: 3}
   slimeHit: {fileID: 8300000, guid: a2b7e357f9eccc94f95046a4fcd8378d, type: 3}
   slimeHop: {fileID: 8300000, guid: e162d0dbcd238bd4391825ddabb99d0c, type: 3}
-  dodge: {fileID: 8300000, guid: 7948a80853d25804db901f7f55937755, type: 3}
-  JUMP: {fileID: 8300000, guid: fd0708f11abee3244bd5102de1bf3681, type: 3}
-  ladderClimb: {fileID: 8300000, guid: 3a93cf3028e05ad4891c7e4ed854c3e3, type: 3}
+  dodge: {fileID: 8300000, guid: 07f4a87dc8fcca24ea59b4461ed04121, type: 3}
+  JUMP: {fileID: 8300000, guid: 3e733532c79c9ef49b9f58309e311462, type: 3}
+  ladderClimb: {fileID: 8300000, guid: 135db36c42a3ca448a480b97f9253981, type: 3}
   landing: {fileID: 8300000, guid: 59b94249d02539a4aa5e4c60de74a022, type: 3}
   walking: {fileID: 8300000, guid: 410aea238f1f4e84b97966b7351c5bcb, type: 3}
   gameStart: {fileID: 8300000, guid: a263f55da5a3d004e9524b5609ac8a2f, type: 3}
@@ -26456,7 +26456,7 @@ PrefabInstance:
       objectReference: {fileID: 1223115880}
     - target: {fileID: 6426165956194036345, guid: a771fb69599917e4fbdfb39f6e85f5e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6466541
+      value: 3.764967
       objectReference: {fileID: 0}
     - target: {fileID: 6426165956194036345, guid: a771fb69599917e4fbdfb39f6e85f5e7, type: 3}
       propertyPath: m_LocalPosition.y

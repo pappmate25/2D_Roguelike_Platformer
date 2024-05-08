@@ -11,7 +11,11 @@ public class LevelExit : MonoBehaviour
     Animator animator;
     public GameObject playerObject;
     Player player;
-
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -32,8 +36,10 @@ public class LevelExit : MonoBehaviour
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
+
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) 
         {
+            audioManager.PlayDelayed(audioManager.gameStart);
             GlobalVariables.doneOneRun = true;
             nextSceneIndex = 0;
             player.SavePlayerStats();            
