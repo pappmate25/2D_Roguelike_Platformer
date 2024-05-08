@@ -7,12 +7,19 @@ public class MainMenu : MonoBehaviour
     public GameObject playerObject;
     Player player;
 
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager=GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private void Start()
     {
         player = playerObject.GetComponent<Player>();
     }
     public void NewGame()
     {
+        audioManager.PlayOneShot(audioManager.selected);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         GlobalVariables.lives = 3;
         GlobalVariables.isShopOpen = true;

@@ -25533,7 +25533,7 @@ GameObject:
   - component: {fileID: 2144509551}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25553,7 +25553,9 @@ MonoBehaviour:
   musicSource: {fileID: 2144458992}
   SFXSource: {fileID: 1490592833}
   background: {fileID: 8300000, guid: 0d6b12b7970cd8b4998af1a91d6fbd36, type: 3}
-  jump: {fileID: 0}
+  bow: {fileID: 8300000, guid: 5a3b962742f167a4483567b64fadc535, type: 3}
+  character_hurt: {fileID: 8300000, guid: 5fcd659c9ad5a4046b9bc05cb9088581, type: 3}
+  death: {fileID: 8300000, guid: 9a9128ff75e3aed45a21f6bbf175fa2c, type: 3}
 --- !u!4 &2144509552
 Transform:
   m_ObjectHideFlags: 0
@@ -25824,7 +25826,7 @@ PrefabInstance:
       objectReference: {fileID: 1223115880}
     - target: {fileID: 6426165956194036345, guid: a771fb69599917e4fbdfb39f6e85f5e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.61255646
+      value: 0.48721695
       objectReference: {fileID: 0}
     - target: {fileID: 6426165956194036345, guid: a771fb69599917e4fbdfb39f6e85f5e7, type: 3}
       propertyPath: m_LocalPosition.y

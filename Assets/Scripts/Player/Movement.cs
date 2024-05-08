@@ -23,7 +23,12 @@ public class Movement : MonoBehaviour
     private float dashTimeLeft;
     private float lastDash = -10f;
     private bool isDashing = false;
-    
+
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -59,15 +64,19 @@ public class Movement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+
         if (!GlobalVariables.isAlive)
         {
+            
             return;
         }
         moveInput = value.Get<Vector2>();
+        audioManager.PlayDelayed(audioManager.walking);
     }
 
     void OnJump(InputValue value)
     {
+        
         if (!GlobalVariables.isAlive || GlobalVariables.isShopOpen)
         {
             return;
@@ -75,13 +84,16 @@ public class Movement : MonoBehaviour
 
         if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground","Hidden Platform")))
         {
+            audioManager.PlayOneShot(audioManager.JUMP);
             rb.velocity += new Vector2(0f, jumpspeed);
         }
     }
     private void Dash()
     {
+        
         if (dashTimeLeft > 0)
         {
+            
             gameObject.layer = LayerMask.NameToLayer("InvinciblePlayer");       
             rb.velocity = new Vector2(transform.localScale.x * dashSpeed, rb.velocity.y);
             dashTimeLeft -= Time.deltaTime;
@@ -120,6 +132,7 @@ public class Movement : MonoBehaviour
     {
         if (shoeCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
+          
             Vector2 climbVelocity = new Vector2(rb.velocity.x, moveInput.y * climbspeed);
             rb.velocity = climbVelocity;
             rb.gravityScale = 0f;
@@ -127,6 +140,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            audioManager.PlayDelayed(audioManager.ladderClimb);
             rb.gravityScale = gravityScaleAtStart;
             animator.SetBool("isClimbing", false);
         }

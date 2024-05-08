@@ -6,6 +6,11 @@ public class SlimeMovement : MonoBehaviour
 {
     float moveSpeed = 1f;
     Rigidbody2D rb;
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
