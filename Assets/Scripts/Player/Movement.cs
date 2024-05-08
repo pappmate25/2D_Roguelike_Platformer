@@ -77,7 +77,7 @@ public class Movement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        
+       
         if (!GlobalVariables.isAlive || GlobalVariables.isShopOpen)
         {
             return;
