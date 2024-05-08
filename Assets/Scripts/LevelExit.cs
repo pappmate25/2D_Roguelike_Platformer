@@ -45,6 +45,7 @@ public class LevelExit : MonoBehaviour
             player.SavePlayerStats();            
         }
         GlobalVariables.newLevel = true;
+        GlobalVariables.isShopOpen = true;
         SceneManager.LoadScene(nextSceneIndex);      
     }
 }
