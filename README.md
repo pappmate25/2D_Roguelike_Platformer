@@ -23,11 +23,7 @@ The design goal was to build a short but challenging replayable prototype.
 ## Built With
 - Unity [originally built in 2022.3.10f1]
 - C#
-
-## Screenshots
-
-
-
+  
 ## Controls
 - **Left:** A
 - **Right:** D
@@ -37,4 +33,4 @@ The design goal was to build a short but challenging replayable prototype.
 - **View Stats:** E
 
 
-*Built by Máté Papp — [[LinkedIn](https://www.linkedin.com/in/m%C3%A1t%C3%A9-papp/)] | [[pappmate25.itch.io](https://pappmate25.itch.io/)]*
+*Built by Máté Papp — [[LinkedIn](https://www.linkedin.com/in/mate-papp25/)] | [[pappmate25.itch.io](https://pappmate25.itch.io/)]*
