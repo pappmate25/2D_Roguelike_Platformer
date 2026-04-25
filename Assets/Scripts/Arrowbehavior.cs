@@ -22,7 +22,7 @@ public class Arrowbehavior : MonoBehaviour
    
     void Update()
     {
-        rb.velocity = new Vector2(xSpeed, 0f);
+        rb.linearVelocity = new Vector2(xSpeed, 0f);
     }  
 
     private void OnCollisionEnter2D(Collision2D collision)

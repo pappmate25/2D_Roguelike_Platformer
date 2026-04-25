@@ -18,7 +18,7 @@ public class SlimeMovement : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = new Vector2(moveSpeed, 0f);
+        rb.linearVelocity = new Vector2(moveSpeed, 0f);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -32,6 +32,6 @@ public class SlimeMovement : MonoBehaviour
 
     void FlipSprite()
     {
-        transform.localScale = new Vector2(-(Mathf.Sign(rb.velocity.x)), 1f);        
+        transform.localScale = new Vector2(-(Mathf.Sign(rb.linearVelocity.x)), 1f);        
     }
 }

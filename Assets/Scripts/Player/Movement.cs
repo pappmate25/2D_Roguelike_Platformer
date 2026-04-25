@@ -86,7 +86,7 @@ public class Movement : MonoBehaviour
         if (value.isPressed && shoeCollider.IsTouchingLayers(LayerMask.GetMask("Ground","Hidden Platform")))
         {
             audioManager.PlayOneShot(audioManager.JUMP);
-            rb.velocity += new Vector2(0f, jumpspeed);
+            rb.linearVelocity += new Vector2(0f, jumpspeed);
         }
     }
     private void Dash()
@@ -96,7 +96,7 @@ public class Movement : MonoBehaviour
         {
             
             gameObject.layer = LayerMask.NameToLayer("InvinciblePlayer");       
-            rb.velocity = new Vector2(transform.localScale.x * dashSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(transform.localScale.x * dashSpeed, rb.linearVelocity.y);
             dashTimeLeft -= Time.deltaTime;
             animator.SetTrigger("Dodge");
             
@@ -105,7 +105,7 @@ public class Movement : MonoBehaviour
         else
         {
             isDashing = false;
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             gameObject.layer = LayerMask.NameToLayer("Player");
             animator.ResetTrigger("Dodge");
         }
@@ -114,21 +114,21 @@ public class Movement : MonoBehaviour
     void Run()
     {
         
-        Vector2 playerVelocity = new Vector2(moveInput.x * movementspeed, rb.velocity.y);
-        rb.velocity = playerVelocity;
+        Vector2 playerVelocity = new Vector2(moveInput.x * movementspeed, rb.linearVelocity.y);
+        rb.linearVelocity = playerVelocity;
 
-        bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
         animator.SetBool("isRunning", playerHasHorizontalSpeed);
         
     }
 
     void FlipSprite()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;  //Mathf.Epsilon tulajdonképpen = 0
+        bool playerHasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;  //Mathf.Epsilon tulajdonkï¿½ppen = 0
 
         if (playerHasHorizontalSpeed)
         {
-            transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
+            transform.localScale = new Vector2(Mathf.Sign(rb.linearVelocity.x), 1f);
         }
     }
 
@@ -138,8 +138,8 @@ public class Movement : MonoBehaviour
         if (shoeCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             
-            Vector2 climbVelocity = new Vector2(rb.velocity.x, moveInput.y * climbspeed);
-            rb.velocity = climbVelocity;
+            Vector2 climbVelocity = new Vector2(rb.linearVelocity.x, moveInput.y * climbspeed);
+            rb.linearVelocity = climbVelocity;
             rb.gravityScale = 0f;
             animator.SetBool("isClimbing", true);
             

@@ -37,7 +37,7 @@ public class Death : MonoBehaviour
         {
             GlobalVariables.isAlive = false;
             animator.SetTrigger("Dying");
-            rb.velocity = deathKick;
+            rb.linearVelocity = deathKick;
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
             audioManager.PlayOneShot(audioManager.character_hurt);
         }
